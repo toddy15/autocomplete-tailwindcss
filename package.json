@@ -1,0 +1,43 @@
+{
+  "name": "autocomplete-tailwind",
+  "version": "0.0.0",
+  "description": "An autocompletion provider for the utility-first CSS framework Tailwind",
+  "license": "MIT",
+  "repository": "https://github.com/vinkla/autocomplete-tailwindcss",
+  "main": "./src/index",
+  "author": {
+    "name": "Vincent Klaiber",
+    "email": "hello@vinkla.com",
+    "url": "vinkla.com"
+  },
+  "engines": {
+    "atom": ">=1.30.0 <2.0.0"
+  },
+  "scripts": {
+    "build": "node src/build.js",
+    "test": "semistandard -v | snazzy && tape test/*.js | tap-spec"
+  },
+  "keywords": [
+    "autocomplete",
+    "css",
+    "tailwind",
+    "tailwindcss"
+  ],
+  "dependencies": {
+    "tailwind-class-names": "^0.6.0",
+    "tailwindcss": "^0.7.4"
+  },
+  "devDependencies": {
+    "semistandard": "^13.0.1",
+    "snazzy": "^8.0.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.10.0"
+  },
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "getProvider"
+      }
+    }
+  }
+}
