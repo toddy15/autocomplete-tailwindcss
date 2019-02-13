@@ -14,6 +14,10 @@ To install the package in Atom, run the command below in the terminal.
 $ apm install autocomplete-tailwind
 ```
 
+## Credits
+
+This project uses the `tailwind-class-names` package by [Brad Cornes](https://github.com/bradlc) which is doing the heavy lifting.
+
 ## License
 
 [MIT](LICENSE) © [Vincent Klaiber](https://vinkla.com)
