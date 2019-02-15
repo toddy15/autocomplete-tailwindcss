@@ -25,7 +25,7 @@ module.exports = {
     for (i = 0, len = completions.length; i < len; i++) {
       [text, rightLabel] = completions[i];
 
-      if (!prefix || text.indexOf(prefix) >= 0) {
+      if (!prefix || text.startsWith(prefix)) {
         completion = {
           replacementPrefix: prefix,
           rightLabel: rightLabel,
