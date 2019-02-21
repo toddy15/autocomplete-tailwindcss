@@ -14,7 +14,7 @@
     "atom": ">=1.30.0 <2.0.0"
   },
   "scripts": {
-    "build": "node src/build.js",
+    "build": "node build.js",
     "test": "semistandard -v | snazzy && tape test/*.js | tap-spec"
   },
   "keywords": [
@@ -28,6 +28,7 @@
     "tailwindcss": "^0.7.4"
   },
   "devDependencies": {
+    "json-stringify-pretty-compact": "^2.0.0",
     "semistandard": "^13.0.1",
     "snazzy": "^8.0.0",
     "tap-spec": "^5.0.0",
