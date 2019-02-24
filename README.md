@@ -2,7 +2,7 @@
 
 > An autocompletion provider for the utility-first CSS framework Tailwind.
 
-Autocompletion provider for Atom with the default Tailwind CSS configuration.
+Autocompletion provider for Atom with the default Tailwind CSS configuration and modules.
 
 ![autocomplete-tailwind](https://user-images.githubusercontent.com/499192/51086687-f01d1500-1749-11e9-88ff-be1b978bc62b.png)
 
