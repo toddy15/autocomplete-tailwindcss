@@ -1,26 +1,13 @@
 'use strict';
 
-const config = require('tailwindcss/defaultConfig')();
-const tailwindClassNames = require('tailwind-class-names');
+const completions = require('./completions.json');
 
 module.exports = {
-  completions: [],
   selector: '.meta.attribute-with-value.class.html',
 
-  async getCompletions () {
-    if (this.completions.length > 0) {
-      return this.completions;
-    }
-
-    const { classNames } = await tailwindClassNames({ config, strings: true });
-    this.completions = Object.entries(classNames);
-    return this.completions;
-  },
-
-  async getSuggestions ({ prefix }) {
+  getSuggestions ({ prefix }) {
     let suggestions = [];
     let completion, i, len, rightLabel, text;
-    let completions = await this.getCompletions();
 
     for (i = 0, len = completions.length; i < len; i++) {
       [text, rightLabel] = completions[i];
