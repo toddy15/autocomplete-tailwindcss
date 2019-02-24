@@ -2,8 +2,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const stringify = require('json-stringify-pretty-compact');
 const config = require('tailwindcss/defaultConfig')();
+const stringify = require('json-stringify-pretty-compact');
 const tailwindClassNames = require('tailwind-class-names');
 
 (async () => {
@@ -13,5 +13,5 @@ const tailwindClassNames = require('tailwind-class-names');
 
   const json = stringify(Object.entries(classNames), { maxLength: 1000 });
 
-  fs.writeFileSync(path.join(__dirname, 'src/completions.json'), json);
+  fs.writeFileSync(path.join(__dirname, '../src/completions.json'), json);
 })();
