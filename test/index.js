@@ -10,7 +10,15 @@ test('package', t => {
 });
 
 test('suggestions', t => {
-  const suggestions = provider.getSuggestions({ prefix: 'bg-red-darkest' });
+  const suggestions = provider.getSuggestions({
+    bufferPosition: { row: 10 },
+    editor: {
+      getTextInRange: () => {
+        return 'className';
+      }
+    },
+    prefix: 'bg-red-darkest'
+  });
   t.equal(suggestions[0].text, 'bg-red-darkest', 'suggest completion bg-red-darkest');
   t.end();
 });

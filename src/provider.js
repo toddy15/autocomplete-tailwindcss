@@ -7,7 +7,7 @@ module.exports = {
 
   getSuggestions (request) {
     const { prefix, bufferPosition, editor } = request;
-    const line = editor.getTextInRange([ [bufferPosition.row, 0], bufferPosition ]);
+    const line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition]);
 
     if (!line.match(/class|className/i)) {
       return [];
