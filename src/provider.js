@@ -3,9 +3,16 @@
 const completions = require('./completions.json');
 
 module.exports = {
-  selector: '.meta.attribute-with-value.class.html',
+  selector: '.string.quoted',
 
-  getSuggestions ({ prefix }) {
+  getSuggestions (request) {
+    const { prefix, bufferPosition, editor } = request;
+    const line = editor.getTextInRange([ [bufferPosition.row, 0], bufferPosition ]);
+
+    if (!line.match(/class|className/i)) {
+      return [];
+    }
+
     let suggestions = [];
     let completion, i, len, rightLabel, text;
 
