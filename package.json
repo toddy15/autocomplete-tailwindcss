@@ -7,8 +7,8 @@
   "main": "./src/index",
   "author": {
     "name": "Vincent Klaiber",
-    "email": "hello@vinkla.com",
-    "url": "vinkla.com"
+    "email": "hello@doubledip.se",
+    "url": "doubledip.se"
   },
   "engines": {
     "atom": ">=1.30.0 <2.0.0"

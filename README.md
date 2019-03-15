@@ -20,4 +20,4 @@ This project uses the [`tailwind-class-names`](https://unpkg.com/tailwind-class-
 
 ## License
 
-[MIT](LICENSE) © [Vincent Klaiber](https://vinkla.com)
+[MIT](LICENSE) © [Vincent Klaiber](https://doubledip.se)
