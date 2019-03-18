@@ -9,7 +9,7 @@ module.exports = {
     const { prefix, bufferPosition, editor } = request;
     const line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition]);
 
-    if (!line.match(/class|className/i)) {
+    if (!line.match(/class|className/i) || prefix.length === 0) {
       return [];
     }
 

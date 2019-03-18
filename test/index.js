@@ -10,15 +10,19 @@ test('package', t => {
 });
 
 test('suggestions', t => {
-  const suggestions = provider.getSuggestions({
-    bufferPosition: { row: 10 },
-    editor: {
-      getTextInRange: () => {
-        return 'className';
-      }
-    },
-    prefix: 'bg-red-darkest'
-  });
-  t.equal(suggestions[0].text, 'bg-red-darkest', 'suggest completion bg-red-darkest');
+  const getSuggestions = (prefix) => {
+    return provider.getSuggestions({
+      bufferPosition: { row: 10 },
+      editor: {
+        getTextInRange: () => {
+          return 'className';
+        }
+      },
+      prefix
+    });
+  };
+
+  t.equal(getSuggestions('bg-red-darkest')[0].text, 'bg-red-darkest', 'suggest completion bg-red-darkest');
+  t.deepEqual(getSuggestions(''), [], 'suggest nothing for empty prefix');
   t.end();
 });
