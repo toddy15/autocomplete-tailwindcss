@@ -13,6 +13,7 @@ test('suggestions', t => {
   const getSuggestions = (prefix) => {
     return provider.getSuggestions({
       bufferPosition: { row: 10 },
+      scopeDescriptor: { scopes: [] },
       editor: {
         getTextInRange: () => {
           return 'className';

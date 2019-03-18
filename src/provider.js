@@ -3,13 +3,19 @@
 const completions = require('./completions.json');
 
 module.exports = {
-  selector: '.string.quoted',
+  selector: '.string.quoted, .source.pug .constant.language.js',
 
   getSuggestions (request) {
-    const { prefix, bufferPosition, editor } = request;
+    const { prefix, bufferPosition, editor, scopeDescriptor } = request;
+
+    if (prefix.length === 0) {
+      return [];
+    }
+
+    const { scopes } = scopeDescriptor;
     const line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition]);
 
-    if (!line.match(/class|className/i) || prefix.length === 0) {
+    if (!line.match(/class|className/i) && !scopes.includes('source.pug')) {
       return [];
     }
 
