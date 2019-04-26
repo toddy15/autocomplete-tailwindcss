@@ -21,7 +21,7 @@ module.exports = {
 
     let suggestions = [];
 
-    for (const [text, rightLabel] of completions.entries()) {
+    for (const [text, rightLabel] of completions) {
       if (!prefix || text.startsWith(prefix)) {
         const completion = {
           replacementPrefix: prefix,
