@@ -20,13 +20,10 @@ module.exports = {
     }
 
     let suggestions = [];
-    let completion, i, len, rightLabel, text;
 
-    for (i = 0, len = completions.length; i < len; i++) {
-      [text, rightLabel] = completions[i];
-
+    for (const [text, rightLabel] of completions.entries()) {
       if (!prefix || text.startsWith(prefix)) {
-        completion = {
+        const completion = {
           replacementPrefix: prefix,
           rightLabel: rightLabel,
           text: text,
