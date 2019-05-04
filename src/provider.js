@@ -1,11 +1,30 @@
-'use strict';
+'use babel';
 
 const completions = require('./completions.json');
 
 module.exports = {
+  /**
+   * @type {string}
+   */
   selector: '.string.quoted, .source.pug .constant.language.js',
 
+  /**
+   * @type {boolean}
+   */
+  isTailwindProject: false,
+
+  /**
+   * Get the completion suggestions.
+   *
+   * @param {object} request
+   *
+   * @return {array}
+   */
   getSuggestions (request) {
+    if (!this.isTailwindProject) {
+      return [];
+    }
+
     const { prefix, bufferPosition, editor, scopeDescriptor } = request;
 
     if (prefix.length === 0) {
