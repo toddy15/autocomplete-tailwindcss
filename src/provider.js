@@ -25,10 +25,19 @@ module.exports = {
       return [];
     }
 
-    const { prefix, bufferPosition, editor, scopeDescriptor } = request;
+    let { prefix, bufferPosition, editor, scopeDescriptor } = request;
 
     if (prefix.length === 0) {
-      return [];
+      const character = editor.getTextInRange([
+        [bufferPosition.row, bufferPosition.column - 1],
+        bufferPosition
+      ]);
+
+      if (character !== '-') {
+        return [];
+      }
+
+      prefix = character;
     }
 
     const { scopes } = scopeDescriptor;

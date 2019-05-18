@@ -2,17 +2,44 @@
 
 const fs = require('fs');
 const path = require('path');
+const postcss = require('postcss');
 const stringify = require('json-stringify-pretty-compact');
-const tailwindClassNames = require('tailwind-class-names');
+const tailwind = require('tailwindcss');
 
 (async () => {
-  const { classNames } = await tailwindClassNames({
-    configPath: path.join(__dirname, './tailwind.js'),
-    pluginPath: path.join(__dirname, '../node_modules/tailwindcss'),
-    strings: true
+  const css = `
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+  `;
+
+  const processor = postcss([
+    tailwind()
+  ]);
+
+  const { root } = await processor.process(css, {
+    from: 'undefined'
   });
 
-  const json = stringify(Object.entries(classNames), { maxLength: 1000 });
+  const selectors = root.nodes.filter(rule => {
+    return rule.type === 'rule' && rule.selector.startsWith('.');
+  });
+
+  const classNames = selectors.map(({ selector, nodes }) => {
+    selector = selector
+      .replace('\\', '')
+      .replace(/^\./, '')
+      .replace(/:hover$/, '')
+      .replace(/:focus$/, '');
+
+    const styles = nodes.map(({ prop, value }) => {
+      return `${prop}: ${value};`;
+    }).join(' ');
+
+    return [selector, styles];
+  });
+
+  const json = stringify(classNames, { maxLength: 1000 });
 
   fs.writeFileSync(path.join(__dirname, '../src/completions.json'), json);
 })();

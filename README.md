@@ -8,17 +8,13 @@ Autocompletion provider for Atom with the default Tailwind CSS configuration and
 
 ## Installation
 
-To install the package in Atom, run the command below in the terminal.
+1. To install the package in Atom, run the command below in the terminal.
 
-```sh
-$ apm install autocomplete-tailwind
-```
+  ```sh
+  $ apm install autocomplete-tailwind
+  ```
 
-Make sure to have the `tailwindcss` package listed as a dependency in your `package.json` file.
-
-## Credits
-
-This project uses the [`tailwind-class-names`](https://unpkg.com/tailwind-class-names@0.6.0/dist/index.js) package by [Brad Cornes](https://github.com/bradlc) which is doing the heavy lifting.
+2. Make sure to have the `tailwindcss` package listed as a dependency in your `package.json` file.
 
 ## License
 

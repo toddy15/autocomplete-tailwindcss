@@ -1,8 +1,5 @@
 'use babel';
 
-const autocompleteTailwind = require('../src');
-const completionProvider = require('../src/provider');
-
 describe('autocomplete-tailwind', () => {
   let editor, provider;
 
@@ -13,15 +10,17 @@ describe('autocomplete-tailwind', () => {
     const line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition]);
     const prefixMatch = /(\b|['"~`!@#$%^&*(){}[\]=+,/?>])((\w+[\w-]*)|([.:;[{(< ]+))$/.exec(line);
     const prefix = prefixMatch ? prefixMatch[2] : '';
-    return provider.getSuggestions({editor, bufferPosition, scopeDescriptor, prefix});
+    return provider.getSuggestions({ editor, bufferPosition, scopeDescriptor, prefix });
   }
 
   beforeEach(() => {
     waitsForPromise(() => atom.packages.activatePackage('autocomplete-tailwind'));
     waitsForPromise(() => atom.workspace.open('test.html'));
 
-    runs(() => provider = atom.packages.getActivePackage('autocomplete-tailwind').mainModule.getProvider());
-    runs(() => editor = atom.workspace.getActiveTextEditor());
+    runs(() => {
+      editor = atom.workspace.getActiveTextEditor();
+      provider = atom.packages.getActivePackage('autocomplete-tailwind').mainModule.getProvider();
+    });
   });
 
   it('returns no completions when current project does not have tailwind installed', () => {
@@ -46,8 +45,8 @@ describe('autocomplete-tailwind', () => {
     const completions = getCompletions();
     expect(completions.length).toBe(1);
     expect(completions[0].text).toContain('bg-black');
-    expect(completions[0].rightLabel).toContain('background-color: #22292f;');
-    expect(completions[0].leftLabelHTML).toContain('<div style="background-color: #22292f" class="tailwind__color-preview"></div>');
+    expect(completions[0].rightLabel).toContain('background-color: #000;');
+    expect(completions[0].leftLabelHTML).toContain('<div style="background-color: #000" class="tailwind__color-preview"></div>');
   });
 
   it('autcompletes html className attribute', () => {
@@ -57,5 +56,14 @@ describe('autocomplete-tailwind', () => {
     editor.setCursorBufferPosition([0, 23]);
 
     expect(getCompletions().length).toBe(1);
+  });
+
+  it('autcompletes with starting dash', () => {
+    provider.isTailwindProject = true;
+
+    editor.setText('<div class="-');
+    editor.setCursorBufferPosition([0, 14]);
+
+    expect(getCompletions()[0].text).toBe('-m-1');
   });
 });

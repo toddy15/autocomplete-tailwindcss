@@ -1,28 +1,17 @@
 'use babel';
 
 const path = require('path');
-const autocompleteTailwind = require('../src');
-const completionProvider = require('../src/provider');
 
 describe('autocomplete-tailwind', () => {
-  let editor, provider;
-
-  function getCompletions () {
-    const cursor = editor.getLastCursor();
-    const bufferPosition = cursor.getBufferPosition();
-    const scopeDescriptor = cursor.getScopeDescriptor();
-    const line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition]);
-    const prefixMatch = /(\b|['"~`!@#$%^&*(){}[\]=+,/?>])((\w+[\w-]*)|([.:;[{(< ]+))$/.exec(line);
-    const prefix = prefixMatch ? prefixMatch[2] : '';
-    return provider.getSuggestions({editor, bufferPosition, scopeDescriptor, prefix});
-  }
+  let provider;
 
   beforeEach(() => {
     waitsForPromise(() => atom.packages.activatePackage('autocomplete-tailwind'));
     waitsForPromise(() => atom.workspace.open('test.html'));
 
-    runs(() => provider = atom.packages.getActivePackage('autocomplete-tailwind').mainModule.getProvider());
-    runs(() => editor = atom.workspace.getActiveTextEditor());
+    runs(() => {
+      provider = atom.packages.getActivePackage('autocomplete-tailwind').mainModule.getProvider();
+    });
   });
 
   it('detectes tailwind project', async () => {
