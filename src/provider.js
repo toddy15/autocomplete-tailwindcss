@@ -6,7 +6,7 @@ module.exports = {
   /**
    * @type {string}
    */
-  selector: '.string.quoted, .source.pug .constant.language.js',
+  selector: '.string.quoted, .source.pug .constant.language.js, .meta.property-list.css, .meta.property-list.scss',
 
   /**
    * @type {boolean}
@@ -43,7 +43,11 @@ module.exports = {
     const { scopes } = scopeDescriptor;
     const line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition]);
 
-    if (!line.match(/class|className/i) && !scopes.includes('source.pug')) {
+    if (
+      !line.match(/@apply/i) &&
+      !line.match(/class|className/i) &&
+      !scopes.includes('source.pug')
+    ) {
       return [];
     }
 

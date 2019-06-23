@@ -49,6 +49,15 @@ describe('autocomplete-tailwind', () => {
     expect(completions[0].leftLabelHTML).toContain('<div style="background-color: #000" class="tailwind__color-preview"></div>');
   });
 
+  it('autcompletes @apply at-rule', () => {
+    provider.isTailwindProject = true;
+
+    editor.setText('@apply font-sa');
+    editor.setCursorBufferPosition([0, 14]);
+
+    expect(getCompletions().length).toBe(1);
+  });
+
   it('autcompletes html className attribute', () => {
     provider.isTailwindProject = true;
 

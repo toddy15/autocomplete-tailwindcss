@@ -5,8 +5,8 @@ const provider = require('./provider');
 
 module.exports = {
   /**
-  * @type {File}
-  */
+   * @type {File}
+   */
   pkg: null,
 
   /**
