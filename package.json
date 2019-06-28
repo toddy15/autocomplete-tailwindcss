@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "tailwind-class-names": "^1.0.0",
-    "tailwindcss": "^1.0.1"
+    "tailwindcss": "^1.0.4"
   },
   "devDependencies": {
     "json-stringify-pretty-compact": "^2.0.0",
