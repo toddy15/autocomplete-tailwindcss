@@ -6,7 +6,7 @@ module.exports = {
   /**
    * @type {string}
    */
-  selector: '.string.quoted, .source.pug .constant.language.js, .meta.property-list.css, .meta.property-list.scss',
+  selector: '.string.quoted, .text.html.basic, .source.pug .constant.language.js, .meta.property-list.css, .meta.property-list.scss',
 
   /**
    * @type {boolean}
