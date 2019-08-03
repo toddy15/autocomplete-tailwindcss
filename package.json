@@ -24,13 +24,13 @@
     "tailwindcss"
   ],
   "dependencies": {
-    "tailwind-class-names": "^1.0.0",
-    "tailwindcss": "^1.0.4"
+    "tailwind-class-names": "^1.0.0"
   },
   "devDependencies": {
     "json-stringify-pretty-compact": "^2.0.0",
     "semistandard": "^13.0.1",
-    "snazzy": "^8.0.0"
+    "snazzy": "^8.0.0",
+    "tailwindcss": "^1.0.6"
   },
   "providedServices": {
     "autocomplete.provider": {
