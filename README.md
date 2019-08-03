@@ -14,7 +14,7 @@ Autocompletion provider for Atom with the default Tailwind CSS configuration and
     $ apm install autocomplete-tailwind
     ```
 
-2. Make sure to have the `tailwindcss` package listed as a dependency in your `package.json` file.
+2. Either install the `tailwindcss` package as a dependency in your `package.json` file or always enable autocompletion through the package settings.
 
 ## License
 
