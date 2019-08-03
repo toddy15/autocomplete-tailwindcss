@@ -40,6 +40,8 @@ module.exports = {
     } else {
       this.subscriptions.add(atom.project.onDidChangeFiles(this.handleDidChangeFiles.bind(this)));
     }
+
+    this.subscriptions.add(atom.config.onDidChange('autocomplete-tailwind.isDisabledIfNotInPackageJson', this.handleDidChangeConfig.bind(this)));
   },
 
   /**
@@ -76,6 +78,21 @@ module.exports = {
       if (event.action === 'renamed' || event.action === 'created') {
         this.isTailwindListedAsDependency();
       }
+    }
+  },
+
+  /**
+   * Check if the package always should autocomplete.
+   *
+   * @param {object} event
+   *
+   * @return {void}
+   */
+  handleDidChangeConfig ({ newValue }) {
+    if (newValue === false) {
+      provider.isTailwindProject = true;
+    } else {
+      this.isTailwindListedAsDependency();
     }
   },
 
