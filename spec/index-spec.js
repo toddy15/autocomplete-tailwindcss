@@ -2,25 +2,40 @@
 
 const path = require('path');
 
-describe('autocomplete-tailwind', () => {
-  let provider;
+let module;
 
-  beforeEach(() => {
-    waitsForPromise(() => atom.packages.activatePackage('autocomplete-tailwind'));
-    waitsForPromise(() => atom.workspace.open('test.html'));
+function setPathAndActivate(folder) {
+  atom.project.setPaths([path.join(__dirname, 'fixtures', folder)]);
+  waitsForPromise(() => atom.packages.activatePackage('autocomplete-tailwind') );
+  runs(() => {
+    module = atom.packages.getActivePackage('autocomplete-tailwind').mainModule;
+  });
+}
 
+describe('project-tailwind', () => {
+  it('detects tailwind project', function() {
+    setPathAndActivate('project-tailwind');
+    waitsForPromise(() => module.isTailwindListedAsDependency() );
     runs(() => {
-      provider = atom.packages.getActivePackage('autocomplete-tailwind').mainModule.getProvider();
+      expect(module.getProvider().isTailwindProject).toBe(true);
+    });
+  });
+});
+
+describe('project-html', () => {
+  it('does not detect tailwind project', function() {
+    setPathAndActivate('project-html');
+    waitsForPromise(() => module.isTailwindListedAsDependency() );
+    runs(() => {
+      expect(module.getProvider().isTailwindProject).toBe(false);
     });
   });
 
-  it('detectes tailwind project', async () => {
-    atom.project.setPaths([path.join(__dirname, 'fixtures', 'project-tailwind')]);
-    setTimeout(() => expect(provider.isTailwindProject).toBe(true), 1000);
-  });
-
-  it('detectes project without tailwind', async () => {
-    atom.project.setPaths([path.join(__dirname, 'fixtures', 'project-html')]);
-    setTimeout(() => expect(provider.isTailwindProject).toBe(false), 1000);
+  it('does not detect tailwind project but activates anyway', function() {
+    atom.config.set(`autocomplete-tailwind.isDisabledIfNotInPackageJson`, false);
+    setPathAndActivate('project-html');
+    runs(() => {
+      expect(module.getProvider().isTailwindProject).toBe(true);
+    });
   });
 });

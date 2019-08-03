@@ -1,6 +1,7 @@
 'use babel';
 
 const { CompositeDisposable, File } = require('atom');
+const config = require('./config-schema.json');
 const provider = require('./provider');
 
 module.exports = {
@@ -8,6 +9,11 @@ module.exports = {
    * @type {File}
    */
   pkg: null,
+
+  /**
+   * @type {object}
+   */
+  config,
 
   /**
    * @type {CompositeDisposable}
@@ -24,7 +30,9 @@ module.exports = {
 
     this.pkg = new File(atom.project.resolvePath('./package.json'));
 
-    if (this.pkg.existsSync()) {
+    if (!this.isDisabledIfNotInPackageJson()) {
+      provider.isTailwindProject = true;
+    } else if (this.pkg.existsSync()) {
       this.isTailwindListedAsDependency();
 
       this.subscriptions.add(this.pkg.onDidChange(this.handleDidChange.bind(this)));
@@ -90,6 +98,15 @@ module.exports = {
       provider.isTailwindProject = false;
       return Promise.resolve();
     }
+  },
+
+  /**
+   * Dispose and deactivate the package.
+   *
+   * @return {bool}
+   */
+  isDisabledIfNotInPackageJson () {
+    return atom.config.get('autocomplete-tailwind.isDisabledIfNotInPackageJson');
   },
 
   /**
