@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "json-stringify-pretty-compact": "^2.0.0",
-    "semistandard": "^13.0.1",
+    "semistandard": "^14.0.1",
     "snazzy": "^8.0.0",
     "tailwindcss": "^1.1.0"
   },
