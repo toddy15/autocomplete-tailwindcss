@@ -30,7 +30,8 @@ const tailwind = require('tailwindcss');
       .replace('\\', '')
       .replace(/^\./, '')
       .replace(/:hover$/, '')
-      .replace(/:focus$/, '');
+      .replace(/:focus$/, '')
+      .replace(/::placeholder$/, '');
 
     const styles = nodes.map(({ prop, value }) => {
       return `${prop}: ${value};`;
