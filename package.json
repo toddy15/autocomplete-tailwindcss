@@ -1,6 +1,6 @@
 {
   "name": "autocomplete-tailwind",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "An autocompletion provider for the utility-first CSS framework Tailwind",
   "license": "MIT",
   "repository": "https://github.com/vinkla/autocomplete-tailwind",
