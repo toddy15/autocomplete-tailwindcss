@@ -4,13 +4,26 @@ __NOTE:__ This package is forked from [vinkla/autocomplete-tailwind](https://git
 
 The project is now in a state of maintenance; there is no active development. If you're here because you are using this project but the completions list is not up to date, feel free to make a pull request!
 
-## Creating a New Version of this Package
+## Manually Installing this Atom Package
 
-The following process should be followed to create a new version of this package. (I'm writing these words just as much for myself as I am for anyone interested in sending a PR.)
+```shell
+git clone https://github.com/bitmanic/atom-tailwindcss.git
+cd atom-tailwindcss
+npm install
+npm run build
+apm install
+apm link .
+```
+
+## Creating a New Release
+
+The following process should be followed to create a new release of this package. (I'm writing these words just as much for myself as I am for anyone interested in sending a PR.)
 
 ```shell
 # If the project's not set up yet:
-npm i
+git clone https://github.com/bitmanic/atom-tailwindcss.git
+cd atom-tailwindcss
+npm install
 
 # Grab the latest version of Tailwind CSS
 npm update tailwindcss
