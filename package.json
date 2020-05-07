@@ -3,7 +3,10 @@
   "version": "0.8.4",
   "description": "An autocompletion provider for the utility-first CSS framework Tailwind",
   "license": "MIT",
-  "repository": "https://github.com/bitmanic/autocomplete-tailwind",
+  "repository": "github:bitmanic/autocomplete-tailwind",
+  "bugs": {
+    "url": "https://github.com/bitmanic/autocomplete-tailwind/issues"
+  },
   "main": "./src/index",
   "author": {
     "name": "Ray Brown",
