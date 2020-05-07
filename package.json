@@ -23,10 +23,9 @@
     "tailwind",
     "tailwindcss"
   ],
-  "dependencies": {
-    "tailwind-class-names": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "eslint-config-standard": "^14.1.1",
     "json-stringify-pretty-compact": "^2.0.0",
     "semistandard": "^14.0.1",
     "snazzy": "^8.0.0",
