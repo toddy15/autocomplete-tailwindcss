@@ -4,18 +4,18 @@ const path = require('path');
 
 let module;
 
-function setPathAndActivate(folder) {
+function setPathAndActivate (folder) {
   atom.project.setPaths([path.join(__dirname, 'fixtures', folder)]);
-  waitsForPromise(() => atom.packages.activatePackage('autocomplete-tailwind') );
+  waitsForPromise(() => atom.packages.activatePackage('autocomplete-tailwind'));
   runs(() => {
     module = atom.packages.getActivePackage('autocomplete-tailwind').mainModule;
   });
 }
 
 describe('project-tailwind', () => {
-  it('detects tailwind project', function() {
+  it('detects tailwind project', function () {
     setPathAndActivate('project-tailwind');
-    waitsForPromise(() => module.isTailwindListedAsDependency() );
+    waitsForPromise(() => module.isTailwindListedAsDependency());
     runs(() => {
       expect(module.getProvider().isTailwindProject).toBe(true);
     });
@@ -23,16 +23,16 @@ describe('project-tailwind', () => {
 });
 
 describe('project-html', () => {
-  it('does not detect tailwind project', function() {
+  it('does not detect tailwind project', function () {
     setPathAndActivate('project-html');
-    waitsForPromise(() => module.isTailwindListedAsDependency() );
+    waitsForPromise(() => module.isTailwindListedAsDependency());
     runs(() => {
       expect(module.getProvider().isTailwindProject).toBe(false);
     });
   });
 
-  it('does not detect tailwind project but activates anyway', function() {
-    atom.config.set(`autocomplete-tailwind.isDisabledIfNotInPackageJson`, false);
+  it('does not detect tailwind project but activates anyway', function () {
+    atom.config.set('autocomplete-tailwind.isDisabledIfNotInPackageJson', false);
     setPathAndActivate('project-html');
     runs(() => {
       expect(module.getProvider().isTailwindProject).toBe(true);

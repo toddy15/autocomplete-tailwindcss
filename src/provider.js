@@ -51,7 +51,7 @@ module.exports = {
       return [];
     }
 
-    let suggestions = [];
+    const suggestions = [];
 
     for (const [text, rightLabel] of completions) {
       if (!prefix || text.startsWith(prefix)) {

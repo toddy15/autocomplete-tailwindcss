@@ -109,7 +109,7 @@ module.exports = {
 
       const packages = Object.assign(dependencies, devDependencies);
 
-      provider.isTailwindProject = packages.hasOwnProperty('tailwindcss');
+      provider.isTailwindProject = 'tailwindcss' in packages;
       return Promise.resolve();
     } catch (error) {
       provider.isTailwindProject = false;
