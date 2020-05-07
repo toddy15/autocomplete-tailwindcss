@@ -31,16 +31,17 @@ const tailwind = require('tailwindcss');
       .replace(/^\./, '')
       .replace(/:hover$/, '')
       .replace(/:focus$/, '')
-      .replace(/::placeholder$/, '');
+      .replace(/::placeholder$/, '')
+      .replace(/(\S+) > .*$/, '$1');
 
     const styles = nodes.map(({ prop, value }) => {
       return `${prop}: ${value};`;
     }).join(' ');
 
     return [selector, styles];
-  });
+  }).sort();
 
-  const json = stringify(classNames, { maxLength: 1000 });
+  const json = stringify(classNames, { maxLength: 3000 });
 
   fs.writeFileSync(path.join(__dirname, '../src/completions.json'), json);
 })();
