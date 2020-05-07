@@ -3,12 +3,12 @@
   "version": "0.8.4",
   "description": "An autocompletion provider for the utility-first CSS framework Tailwind",
   "license": "MIT",
-  "repository": "https://github.com/vinkla/autocomplete-tailwind",
+  "repository": "https://github.com/bitmanic/autocomplete-tailwind",
   "main": "./src/index",
   "author": {
-    "name": "Vincent Klaiber",
-    "email": "hello@doubledip.se",
-    "url": "doubledip.se"
+    "name": "Ray Brown",
+    "email": "hey@raybrown.co",
+    "url": "@raybrown.co"
   },
   "engines": {
     "atom": ">=1.30.0 <2.0.0"
