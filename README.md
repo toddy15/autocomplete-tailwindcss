@@ -1,4 +1,4 @@
-# autocomplete-tailwind
+# atom-tailwindcss
 
 __NOTE:__ This package is forked from [vinkla/autocomplete-tailwind](https://github.com/vinkla/autocomplete-tailwind), where it has been archived and abandoned by the previous owner.
 
