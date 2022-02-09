@@ -45,8 +45,8 @@ describe('tailwindcss-autocomplete', () => {
     const completions = getCompletions();
     expect(completions.length).toBe(1);
     expect(completions[0].text).toContain('bg-black');
-    expect(completions[0].rightLabel).toContain('background-color: #000;');
-    expect(completions[0].leftLabelHTML).toContain('<div style="background-color: #000" class="tailwind__color-preview"></div>');
+    expect(completions[0].rightLabel).toContain('--tw-bg-opacity: 1; background-color: rgba(0, 0, 0, var(--tw-bg-opacity));');
+    expect(completions[0].leftLabelHTML).toContain('<div style="background-color: rgba(0, 0, 0, 1)" class="tailwind__color-preview"></div>');
   });
 
   it('autocompletes @apply at-rule', () => {
@@ -73,6 +73,6 @@ describe('tailwindcss-autocomplete', () => {
     editor.setText('<div class="-');
     editor.setCursorBufferPosition([0, 14]);
 
-    expect(getCompletions()[0].text).toBe('-m-1');
+    expect(getCompletions()[0].text).toBe('-backdrop-hue-rotate-15');
   });
 });
