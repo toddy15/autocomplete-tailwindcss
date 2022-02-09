@@ -1,17 +1,16 @@
 {
-  "name": "atom-tailwindcss",
+  "name": "tailwindcss-autocomplete",
   "version": "0.9.0",
   "description": "An autocompletion provider for the utility-first CSS framework Tailwind",
   "license": "MIT",
-  "repository": "https://github.com/bitmanic/atom-tailwindcss.git",
+  "repository": "https://github.com/toddy15/tailwindcss-autocomplete.git",
   "bugs": {
-    "url": "https://github.com/bitmanic/atom-tailwindcss/pulls"
+    "url": "https://github.com/toddy15/tailwindcss-autocomplete/pulls"
   },
   "main": "./src/index",
   "author": {
-    "name": "Ray Brown",
-    "email": "hey@raybrown.co",
-    "url": "@raybrown.co"
+    "name": "Dr. Tobias Quathamer",
+    "email": "toddy@debian.org"
   },
   "engines": {
     "atom": ">=1.30.0 <2.0.0"
