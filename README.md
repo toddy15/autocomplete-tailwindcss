@@ -1,10 +1,8 @@
-# atom-tailwindcss
+# tailwindcss-autocomplete
 
-**NOTE:** This package is forked from [raybrownco/atom-tailwindcss](https://github.com/raybrownco/atom-tailwindcss), because there are no longer updates to the new Tailwind CSS class names.
+This package uses the great work of [raybrownco/atom-tailwindcss](https://github.com/raybrownco/atom-tailwindcss) and [vinkla/autocomplete-tailwind](https://github.com/vinkla/autocomplete-tailwind). Unfortunately, both projects are stuck at Tailwind CSS v1 and there does not seem to be any activity in both repositories.
 
-That package had been forked from [vinkla/autocomplete-tailwind](https://github.com/vinkla/autocomplete-tailwind), where it has been archived and abandoned by the previous owner.
-
-The project is now in a state of maintenance; there is no active development. If you're here because you are using this project but the completions list is not up to date, feel free to make a pull request!
+This project is updated to include the classnames of Tailwind CSS v2.2.19 and has been fixed to show a preview of the color names.
 
 ## Manually Installing this Atom Package
 
