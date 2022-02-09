@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-autocomplete",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "An autocompletion provider for the utility-first CSS framework Tailwind",
   "license": "MIT",
   "repository": "https://github.com/toddy15/tailwindcss-autocomplete.git",
