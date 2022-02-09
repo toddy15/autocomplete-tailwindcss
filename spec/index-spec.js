@@ -6,9 +6,9 @@ let module;
 
 function setPathAndActivate (folder) {
   atom.project.setPaths([path.join(__dirname, 'fixtures', folder)]);
-  waitsForPromise(() => atom.packages.activatePackage('atom-tailwindcss'));
+  waitsForPromise(() => atom.packages.activatePackage('tailwindcss-autocomplete'));
   runs(() => {
-    module = atom.packages.getActivePackage('atom-tailwindcss').mainModule;
+    module = atom.packages.getActivePackage('tailwindcss-autocomplete').mainModule;
   });
 }
 
@@ -32,7 +32,7 @@ describe('project-html', () => {
   });
 
   it('does not detect tailwind project but activates anyway', function () {
-    atom.config.set('atom-tailwindcss.isDisabledIfNotInPackageJson', false);
+    atom.config.set('tailwindcss-autocomplete.isDisabledIfNotInPackageJson', false);
     setPathAndActivate('project-html');
     runs(() => {
       expect(module.getProvider().isTailwindProject).toBe(true);

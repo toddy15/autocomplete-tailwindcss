@@ -41,7 +41,7 @@ module.exports = {
       this.subscriptions.add(atom.project.onDidChangeFiles(this.handleDidChangeFiles.bind(this)));
     }
 
-    this.subscriptions.add(atom.config.onDidChange('atom-tailwindcss.isDisabledIfNotInPackageJson', this.handleDidChangeConfig.bind(this)));
+    this.subscriptions.add(atom.config.onDidChange('tailwindcss-autocomplete.isDisabledIfNotInPackageJson', this.handleDidChangeConfig.bind(this)));
   },
 
   /**
@@ -123,7 +123,7 @@ module.exports = {
    * @return {bool}
    */
   isDisabledIfNotInPackageJson () {
-    return atom.config.get('atom-tailwindcss.isDisabledIfNotInPackageJson');
+    return atom.config.get('tailwindcss-autocomplete.isDisabledIfNotInPackageJson');
   },
 
   /**

@@ -1,6 +1,6 @@
 'use babel';
 
-describe('atom-tailwindcss', () => {
+describe('tailwindcss-autocomplete', () => {
   let editor, provider;
 
   function getCompletions () {
@@ -14,12 +14,12 @@ describe('atom-tailwindcss', () => {
   }
 
   beforeEach(() => {
-    waitsForPromise(() => atom.packages.activatePackage('atom-tailwindcss'));
+    waitsForPromise(() => atom.packages.activatePackage('tailwindcss-autocomplete'));
     waitsForPromise(() => atom.workspace.open('test.html'));
 
     runs(() => {
       editor = atom.workspace.getActiveTextEditor();
-      provider = atom.packages.getActivePackage('atom-tailwindcss').mainModule.getProvider();
+      provider = atom.packages.getActivePackage('tailwindcss-autocomplete').mainModule.getProvider();
     });
   });
 
