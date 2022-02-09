@@ -36,7 +36,7 @@ describe('tailwindcss-autocomplete', () => {
     expect(getCompletions().length).toBe(0);
   });
 
-  it('autcompletes html class attribute', () => {
+  it('autocompletes html class attribute', () => {
     provider.isTailwindProject = true;
 
     editor.setText('<div class="bg-black');
@@ -49,7 +49,7 @@ describe('tailwindcss-autocomplete', () => {
     expect(completions[0].leftLabelHTML).toContain('<div style="background-color: #000" class="tailwind__color-preview"></div>');
   });
 
-  it('autcompletes @apply at-rule', () => {
+  it('autocompletes @apply at-rule', () => {
     provider.isTailwindProject = true;
 
     editor.setText('@apply font-sa');
@@ -58,7 +58,7 @@ describe('tailwindcss-autocomplete', () => {
     expect(getCompletions().length).toBe(1);
   });
 
-  it('autcompletes html className attribute', () => {
+  it('autocompletes html className attribute', () => {
     provider.isTailwindProject = true;
 
     editor.setText('<div className="font-sa');
@@ -67,7 +67,7 @@ describe('tailwindcss-autocomplete', () => {
     expect(getCompletions().length).toBe(1);
   });
 
-  it('autcompletes with starting dash', () => {
+  it('autocompletes with starting dash', () => {
     provider.isTailwindProject = true;
 
     editor.setText('<div class="-');
