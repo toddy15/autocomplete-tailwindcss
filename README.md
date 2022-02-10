@@ -40,4 +40,4 @@ git diff src/completions.json
 
 If nothing has failed and the inspection goes well enough, you're ready to create a new version! All this means is that you crack open `package.json` and bump the version number. After that's done, send a pull request!
 
-[MIT](LICENSE) © Dr. Tobias Quathamer
+[MIT](LICENSE.md) © Dr. Tobias Quathamer
