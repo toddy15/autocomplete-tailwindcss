@@ -17,7 +17,8 @@
   },
   "scripts": {
     "build": "node script/build.js",
-    "test": "ppm test"
+    "test": "ppm test",
+    "format": "npx prettier . --write"
   },
   "keywords": [
     "autocomplete",
