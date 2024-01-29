@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright © 2022 Dr. Tobias Quathamer <toddy@debian.org> \
+Copyright © 2022-2024 Dr. Tobias Quathamer <toddy@debian.org> \
 Copyright © 2020 Ray Brown <hey@raybrown.co> \
 Copyright © 2019-2020 Vincent Klaiber <hello@doubledip.se>
 

@@ -1,35 +1,38 @@
 # autocomplete-tailwindcss
 
-## Introduction
+Autocomplete for Tailwind CSS classes.
 
-This package uses the great work of
-[raybrownco/atom-tailwindcss](https://github.com/raybrownco/atom-tailwindcss)
-and
-[vinkla/autocomplete-tailwind](https://github.com/vinkla/autocomplete-tailwind).
-Unfortunately, both projects are stuck at Tailwind CSS v1 and there does not
-seem to be any activity in both repositories.
+## Installation
 
-This project is updated to include the classnames of Tailwind CSS v3.4 and has
-been fixed to show a preview of the color names.
+You can install the package from the Pulsar GUI, using the Pulsar Package
+Manager [ppm](https://github.com/pulsar-edit/ppm). Another option is the
+installation from the command line.
 
-## Manually Installing this Atom Package
-
-```shell
-git clone https://github.com/toddy15/autocomplete-tailwindcss.git
-cd autocomplete-tailwindcss
-npm install
-npm run build
-ppm install
-ppm link .
+```bash
+ppm install autocomplete-tailwindcss
 ```
 
-## Creating a New Release
+## Contributing
+
+Pull requests are welcome. Please make sure to update tests as appropriate.
+
+## Authors and copyright
+
+- Dr. Tobias Quathamer <toddy@debian.org>
+- Ray Brown <hey@raybrown.co>
+- Vincent Klaiber <hello@doubledip.se>
+
+## License
+
+[MIT](LICENSE.md)
+
+## Creating a new release
 
 The following process should be followed to create a new release of this
 package. (I'm writing these words just as much for myself as I am for anyone
 interested in sending a PR.)
 
-```shell
+```bash
 # If the project's not set up yet:
 git clone https://github.com/toddy15/autocomplete-tailwindcss.git
 cd autocomplete-tailwindcss
@@ -52,4 +55,11 @@ If nothing has failed and the inspection goes well enough, you're ready to
 create a new version! All this means is that you crack open `package.json` and
 bump the version number. After that's done, send a pull request!
 
-[MIT](LICENSE.md) © Dr. Tobias Quathamer
+## History
+
+This package uses the great work of
+[raybrownco/atom-tailwindcss](https://github.com/raybrownco/atom-tailwindcss)
+and
+[vinkla/autocomplete-tailwind](https://github.com/vinkla/autocomplete-tailwind).
+Unfortunately, both projects are stuck at Tailwind CSS v1 and there does not
+seem to be any activity in both repositories.
