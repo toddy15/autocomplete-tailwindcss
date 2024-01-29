@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "node script/build.js",
-    "test": "semistandard -v | snazzy & ppm test"
+    "test": "ppm test"
   },
   "keywords": [
     "autocomplete",
@@ -29,8 +29,6 @@
   ],
   "devDependencies": {
     "json-stringify-pretty-compact": "^3.0.0",
-    "semistandard": "^16.0.1",
-    "snazzy": "^9.0.0",
     "tailwindcss": "^3.4.1"
   },
   "providedServices": {
@@ -39,16 +37,5 @@
         "2.0.0": "getProvider"
       }
     }
-  },
-  "semistandard": {
-    "globals": [
-      "atom",
-      "beforeEach",
-      "describe",
-      "expect",
-      "it",
-      "runs",
-      "waitsForPromise"
-    ]
   }
 }
