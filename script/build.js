@@ -13,7 +13,19 @@ const tailwind = require("tailwindcss");
     @tailwind utilities;
   `;
 
-  const processor = postcss([tailwind()]);
+  const tailwindConfig = {
+    // Include a content option to suppress
+    // a warning from tailwind.
+    content: ["*.html"],
+    // The "." means "everything"
+    safelist: [
+      {
+        pattern: /./,
+      },
+    ],
+  };
+
+  const processor = postcss([tailwind(tailwindConfig)]);
 
   const { root } = await processor.process(css, {
     from: "undefined",
