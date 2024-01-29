@@ -1,8 +1,8 @@
-'use babel';
+"use babel";
 
-const { CompositeDisposable, File } = require('atom');
-const config = require('./config-schema.json');
-const provider = require('./provider');
+const { CompositeDisposable, File } = require("atom");
+const config = require("./config-schema.json");
+const provider = require("./provider");
 
 module.exports = {
   /**
@@ -25,23 +25,34 @@ module.exports = {
    *
    * @return {void}
    */
-  activate () {
+  activate() {
     this.subscriptions = new CompositeDisposable();
 
-    this.pkg = new File(atom.project.resolvePath('./package.json'));
+    this.pkg = new File(atom.project.resolvePath("./package.json"));
 
     if (!this.isDisabledIfNotInPackageJson()) {
       provider.isTailwindProject = true;
     } else if (this.pkg.existsSync()) {
       this.isTailwindListedAsDependency();
 
-      this.subscriptions.add(this.pkg.onDidChange(this.handleDidChange.bind(this)));
-      this.subscriptions.add(this.pkg.onDidDelete(this.handleDidDelete.bind(this)));
+      this.subscriptions.add(
+        this.pkg.onDidChange(this.handleDidChange.bind(this)),
+      );
+      this.subscriptions.add(
+        this.pkg.onDidDelete(this.handleDidDelete.bind(this)),
+      );
     } else {
-      this.subscriptions.add(atom.project.onDidChangeFiles(this.handleDidChangeFiles.bind(this)));
+      this.subscriptions.add(
+        atom.project.onDidChangeFiles(this.handleDidChangeFiles.bind(this)),
+      );
     }
 
-    this.subscriptions.add(atom.config.onDidChange('autocomplete-tailwindcss.isDisabledIfNotInPackageJson', this.handleDidChangeConfig.bind(this)));
+    this.subscriptions.add(
+      atom.config.onDidChange(
+        "autocomplete-tailwindcss.isDisabledIfNotInPackageJson",
+        this.handleDidChangeConfig.bind(this),
+      ),
+    );
   },
 
   /**
@@ -49,7 +60,7 @@ module.exports = {
    *
    * @return {void}
    */
-  handleDidChange () {
+  handleDidChange() {
     this.isTailwindListedAsDependency();
   },
 
@@ -58,7 +69,7 @@ module.exports = {
    *
    * @return {void}
    */
-  handleDidDelete () {
+  handleDidDelete() {
     provider.isTailwindProject = false;
   },
 
@@ -69,13 +80,13 @@ module.exports = {
    *
    * @return {void}
    */
-  handleDidChangeFiles (events) {
+  handleDidChangeFiles(events) {
     for (const event of events) {
       if (event.path !== this.pkg.path) {
         continue;
       }
 
-      if (event.action === 'renamed' || event.action === 'created') {
+      if (event.action === "renamed" || event.action === "created") {
         this.isTailwindListedAsDependency();
       }
     }
@@ -88,7 +99,7 @@ module.exports = {
    *
    * @return {void}
    */
-  handleDidChangeConfig ({ newValue }) {
+  handleDidChangeConfig({ newValue }) {
     if (newValue === false) {
       provider.isTailwindProject = true;
     } else {
@@ -101,7 +112,7 @@ module.exports = {
    *
    * @return {void}
    */
-  async isTailwindListedAsDependency () {
+  async isTailwindListedAsDependency() {
     try {
       const pkg = await this.pkg.read();
 
@@ -109,7 +120,7 @@ module.exports = {
 
       const packages = Object.assign(dependencies, devDependencies);
 
-      provider.isTailwindProject = 'tailwindcss' in packages;
+      provider.isTailwindProject = "tailwindcss" in packages;
       return Promise.resolve();
     } catch (error) {
       provider.isTailwindProject = false;
@@ -122,8 +133,10 @@ module.exports = {
    *
    * @return {bool}
    */
-  isDisabledIfNotInPackageJson () {
-    return atom.config.get('autocomplete-tailwindcss.isDisabledIfNotInPackageJson');
+  isDisabledIfNotInPackageJson() {
+    return atom.config.get(
+      "autocomplete-tailwindcss.isDisabledIfNotInPackageJson",
+    );
   },
 
   /**
@@ -131,7 +144,7 @@ module.exports = {
    *
    * @return {object}
    */
-  getProvider () {
+  getProvider() {
     return provider;
   },
 
@@ -140,11 +153,11 @@ module.exports = {
    *
    * @return {void}
    */
-  deactivate () {
+  deactivate() {
     if (this.subscriptions) {
       this.subscriptions.dispose();
     }
 
     this.subscriptions = null;
-  }
+  },
 };

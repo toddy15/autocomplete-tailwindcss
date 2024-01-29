@@ -1,12 +1,13 @@
-'use babel';
+"use babel";
 
-const completions = require('./completions.json');
+const completions = require("./completions.json");
 
 module.exports = {
   /**
    * @type {string}
    */
-  selector: '.text.html.erb, .string.quoted, .text.html.basic, .source.pug .constant.language.js, .meta.property-list.css, .meta.property-list.scss',
+  selector:
+    ".text.html.erb, .string.quoted, .text.html.basic, .source.pug .constant.language.js, .meta.property-list.css, .meta.property-list.scss",
 
   /**
    * @type {boolean}
@@ -20,7 +21,7 @@ module.exports = {
    *
    * @return {array}
    */
-  getSuggestions (request) {
+  getSuggestions(request) {
     if (!this.isTailwindProject) {
       return [];
     }
@@ -30,10 +31,10 @@ module.exports = {
     if (prefix.length === 0) {
       const character = editor.getTextInRange([
         [bufferPosition.row, bufferPosition.column - 1],
-        bufferPosition
+        bufferPosition,
       ]);
 
-      if (character !== '-') {
+      if (character !== "-") {
         return [];
       }
 
@@ -41,12 +42,15 @@ module.exports = {
     }
 
     const { scopes } = scopeDescriptor;
-    const line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition]);
+    const line = editor.getTextInRange([
+      [bufferPosition.row, 0],
+      bufferPosition,
+    ]);
 
     if (
       !line.match(/@apply/i) &&
       !line.match(/class|className/i) &&
-      !scopes.includes('source.pug')
+      !scopes.includes("source.pug")
     ) {
       return [];
     }
@@ -59,12 +63,14 @@ module.exports = {
           replacementPrefix: prefix,
           rightLabel: rightLabel,
           text: text,
-          type: 'tailwind'
+          type: "tailwind",
         };
 
-        if (rightLabel.indexOf('color') >= 0) {
-          const result = rightLabel.match(/rgba\([0-9]{1,3}, [0-9]{1,3}, [0-9]{1,3}/i);
-          const color = result ? result[0] + ', 1)' : 'transparent';
+        if (rightLabel.indexOf("color") >= 0) {
+          const result = rightLabel.match(
+            /rgba\([0-9]{1,3}, [0-9]{1,3}, [0-9]{1,3}/i,
+          );
+          const color = result ? result[0] + ", 1)" : "transparent";
 
           completion.leftLabelHTML = `<div style="background-color: ${color}" class="tailwind__color-preview"></div>`;
         }
@@ -74,5 +80,5 @@ module.exports = {
     }
 
     return suggestions;
-  }
+  },
 };
