@@ -2,9 +2,15 @@
 
 ## Introduction
 
-This package uses the great work of [raybrownco/atom-tailwindcss](https://github.com/raybrownco/atom-tailwindcss) and [vinkla/autocomplete-tailwind](https://github.com/vinkla/autocomplete-tailwind). Unfortunately, both projects are stuck at Tailwind CSS v1 and there does not seem to be any activity in both repositories.
+This package uses the great work of
+[raybrownco/atom-tailwindcss](https://github.com/raybrownco/atom-tailwindcss)
+and
+[vinkla/autocomplete-tailwind](https://github.com/vinkla/autocomplete-tailwind).
+Unfortunately, both projects are stuck at Tailwind CSS v1 and there does not
+seem to be any activity in both repositories.
 
-This project is updated to include the classnames of Tailwind CSS v3.4 and has been fixed to show a preview of the color names.
+This project is updated to include the classnames of Tailwind CSS v3.4 and has
+been fixed to show a preview of the color names.
 
 ## Manually Installing this Atom Package
 
@@ -19,7 +25,9 @@ apm link .
 
 ## Creating a New Release
 
-The following process should be followed to create a new release of this package. (I'm writing these words just as much for myself as I am for anyone interested in sending a PR.)
+The following process should be followed to create a new release of this
+package. (I'm writing these words just as much for myself as I am for anyone
+interested in sending a PR.)
 
 ```shell
 # If the project's not set up yet:
@@ -40,6 +48,8 @@ npm run test
 git diff src/completions.json
 ```
 
-If nothing has failed and the inspection goes well enough, you're ready to create a new version! All this means is that you crack open `package.json` and bump the version number. After that's done, send a pull request!
+If nothing has failed and the inspection goes well enough, you're ready to
+create a new version! All this means is that you crack open `package.json` and
+bump the version number. After that's done, send a pull request!
 
 [MIT](LICENSE.md) © Dr. Tobias Quathamer
