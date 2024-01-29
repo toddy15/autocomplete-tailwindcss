@@ -29,6 +29,7 @@
   ],
   "devDependencies": {
     "json-stringify-pretty-compact": "^3.0.0",
+    "prettier": "^3.2.4",
     "tailwindcss": "^3.4.1"
   },
   "providedServices": {
