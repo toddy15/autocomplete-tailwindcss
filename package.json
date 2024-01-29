@@ -1,11 +1,11 @@
 {
-  "name": "tailwindcss-autocomplete",
-  "version": "0.10.1",
-  "description": "An autocompletion provider for the utility-first CSS framework Tailwind v2",
+  "name": "autocomplete-tailwindcss",
+  "version": "0.11.0",
+  "description": "An autocompletion provider for the utility-first CSS framework Tailwind v3",
   "license": "MIT",
-  "repository": "https://github.com/toddy15/tailwindcss-autocomplete.git",
+  "repository": "https://github.com/toddy15/autocomplete-tailwindcss.git",
   "bugs": {
-    "url": "https://github.com/toddy15/tailwindcss-autocomplete/pulls"
+    "url": "https://github.com/toddy15/autocomplete-tailwindcss/pulls"
   },
   "main": "./src/index",
   "author": {
@@ -24,13 +24,14 @@
     "css",
     "tailwind",
     "tailwind v2",
+    "tailwind v3",
     "tailwindcss"
   ],
   "devDependencies": {
     "json-stringify-pretty-compact": "^3.0.0",
     "semistandard": "^16.0.1",
     "snazzy": "^9.0.0",
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^3.4.1"
   },
   "providedServices": {
     "autocomplete.provider": {
