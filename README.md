@@ -19,8 +19,8 @@ git clone https://github.com/toddy15/autocomplete-tailwindcss.git
 cd autocomplete-tailwindcss
 npm install
 npm run build
-apm install
-apm link .
+ppm install
+ppm link .
 ```
 
 ## Creating a New Release
