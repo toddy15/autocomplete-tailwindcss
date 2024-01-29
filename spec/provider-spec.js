@@ -59,10 +59,10 @@ describe("autocomplete-tailwindcss", () => {
     expect(completions.length).toBe(1);
     expect(completions[0].text).toContain("bg-black");
     expect(completions[0].rightLabel).toContain(
-      "--tw-bg-opacity: 1; background-color: rgba(0, 0, 0, var(--tw-bg-opacity));",
+      "--tw-bg-opacity: 1; background-color: rgb(0 0 0 / var(--tw-bg-opacity));",
     );
     expect(completions[0].leftLabelHTML).toContain(
-      '<div style="background-color: rgba(0, 0, 0, 1)" class="tailwind__color-preview"></div>',
+      '<div style="background-color: rgb(0 0 0 / 1)" class="tailwind__color-preview"></div>',
     );
   });
 

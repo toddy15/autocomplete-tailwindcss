@@ -68,9 +68,9 @@ module.exports = {
 
         if (rightLabel.indexOf("color") >= 0) {
           const result = rightLabel.match(
-            /rgba\([0-9]{1,3}, [0-9]{1,3}, [0-9]{1,3}/i,
+            /rgb\([0-9]{1,3} [0-9]{1,3} [0-9]{1,3}/i,
           );
-          const color = result ? result[0] + ", 1)" : "transparent";
+          const color = result ? result[0] + " / 1)" : "transparent";
 
           completion.leftLabelHTML = `<div style="background-color: ${color}" class="tailwind__color-preview"></div>`;
         }
