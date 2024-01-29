@@ -17,7 +17,7 @@
   },
   "scripts": {
     "build": "node script/build.js",
-    "test": "semistandard -v | snazzy & apm test"
+    "test": "semistandard -v | snazzy & ppm test"
   },
   "keywords": [
     "autocomplete",
