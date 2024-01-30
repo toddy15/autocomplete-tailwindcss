@@ -8,7 +8,7 @@ You can install the package from the Pulsar GUI, using the Pulsar Package
 Manager [ppm](https://github.com/pulsar-edit/ppm). Another option is the
 installation from the command line.
 
-```bash
+```shell
 ppm install autocomplete-tailwindcss
 ```
 
@@ -32,7 +32,7 @@ The following process should be followed to create a new release of this
 package. (I'm writing these words just as much for myself as I am for anyone
 interested in sending a PR.)
 
-```bash
+```shell
 # If the project's not set up yet:
 git clone https://github.com/toddy15/autocomplete-tailwindcss.git
 cd autocomplete-tailwindcss
@@ -59,7 +59,5 @@ bump the version number. After that's done, send a pull request!
 
 This package uses the great work of
 [raybrownco/atom-tailwindcss](https://github.com/raybrownco/atom-tailwindcss)
-and
-[vinkla/autocomplete-tailwind](https://github.com/vinkla/autocomplete-tailwind).
-Unfortunately, both projects are stuck at Tailwind CSS v1 and there does not
-seem to be any activity in both repositories.
+and vinkla/autocomplete-tailwind (which is no longer available on GitHub).
+Unfortunately, both projects are no longer actively developed.
