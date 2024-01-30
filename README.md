@@ -2,6 +2,10 @@
 
 Autocomplete for Tailwind CSS classes.
 
+![GitHub License](https://img.shields.io/github/license/toddy15/autocomplete-tailwindcss)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/toddy15/autocomplete-tailwindcss)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/toddy15/autocomplete-tailwindcss/testing.yml)
+
 ## Installation
 
 You can install the package from the Pulsar GUI, using the Pulsar Package
