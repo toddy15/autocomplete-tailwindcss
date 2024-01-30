@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.12.0] – 2024-01-31
+
+### Fixed
+
+- Increment minor version to fix installation of this package. See
+  https://github.com/pulsar-edit/ppm/issues/125 for details.
+- Remove dead link in README.md
+
 ## [0.11.0] – 2024-01-31
 
 ### Added
@@ -55,6 +63,8 @@ and this project adheres to
 - Color preview in autocompletion popup
 - Make tests pass again
 
+[0.12.0]:
+  https://github.com/toddy15/autocomplete-tailwindcss/compare/v0.11.0...v0.12.0
 [0.11.0]:
   https://github.com/toddy15/autocomplete-tailwindcss/compare/v0.10.1...v0.11.0
 [0.10.1]:
