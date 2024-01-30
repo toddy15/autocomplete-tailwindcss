@@ -13,7 +13,7 @@
     "email": "toddy@debian.org"
   },
   "engines": {
-    "atom": ">=1.30.0 <2.0.0"
+    "atom": ">=1.0.0 <2.0.0"
   },
   "scripts": {
     "build": "node script/build.js",
