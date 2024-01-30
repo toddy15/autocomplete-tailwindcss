@@ -66,12 +66,16 @@ module.exports = {
           type: "tailwind",
         };
 
-        if (rightLabel.indexOf("color") >= 0) {
-          const result = rightLabel.match(
-            /rgb\([0-9]{1,3} [0-9]{1,3} [0-9]{1,3}/i,
-          );
-          const color = result ? result[0] + " / 1)" : "transparent";
+        // Match colors using rgb() or #bad123
+        let color = "";
+        let result = rightLabel.match(/rgb\([0-9]{1,3} [0-9]{1,3} [0-9]{1,3}/i);
+        if (result) {
+          color = result[0] + " / 1)";
+        } else if ((result = rightLabel.match(/#[0-9a-f]{6}/i))) {
+          color = result[0];
+        }
 
+        if (color !== "") {
           completion.leftLabelHTML = `<div style="background-color: ${color}" class="tailwind__color-preview"></div>`;
         }
 
