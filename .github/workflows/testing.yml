@@ -12,7 +12,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [16, 18, 20]
+        pulsar-version: [1.113.0]
 
     steps:
       - uses: actions/checkout@v4
@@ -21,5 +22,29 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
+      - name: Cache Pulsar package
+        id: cache-pulsar
+        uses: actions/cache@v4
+        with:
+          path: Linux.pulsar_${{ matrix.pulsar-version }}_amd64.deb
+          key: ${{ runner.os }}-Pulsar-${{ matrix.pulsar-version }}
+      - name: Install Pulsar dependencies
+        run: |
+          sudo apt-get install -y libgtk-3-0 libnotify4 libnss3 libxss1 \
+          libxtst6 xdg-utils libatspi2.0-0 libuuid1 libsecret-1-0 \
+          xvfb
+      - if: ${{ steps.cache-pulsar.outputs.cache-hit != 'true' }}
+        name: Download Pulsar ${{ matrix.pulsar-version }}
+        continue-on-error: true
+        run: |
+          wget https://github.com/pulsar-edit/pulsar/releases/download/v${{ matrix.pulsar-version }}/Linux.pulsar_${{ matrix.pulsar-version }}_amd64.deb
+      - name: Install Pulsar ${{ matrix.pulsar-version }}
+        run: sudo dpkg -i Linux.pulsar_${{ matrix.pulsar-version }}_amd64.deb
+      - name: Add missing symbolic link to 'atom'
+        run: sudo ln -s /usr/bin/pulsar /usr/bin/atom
+      - name: Create virtual screen with Xvfb
+        run: sudo Xvfb :1 -ac &
       - run: npm ci
       - run: npm test
+        env:
+          DISPLAY: :1
