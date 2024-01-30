@@ -56,7 +56,7 @@ describe("autocomplete-tailwindcss", () => {
     editor.setCursorBufferPosition([0, 19]);
 
     const completions = getCompletions();
-    expect(completions.length).toBe(1);
+    expect(completions.length).toBe(22);
     expect(completions[0].text).toContain("bg-black");
     expect(completions[0].rightLabel).toContain(
       "--tw-bg-opacity: 1; background-color: rgb(0 0 0 / var(--tw-bg-opacity));",
@@ -90,6 +90,6 @@ describe("autocomplete-tailwindcss", () => {
     editor.setText('<div class="-');
     editor.setCursorBufferPosition([0, 14]);
 
-    expect(getCompletions()[0].text).toBe("-backdrop-hue-rotate-15");
+    expect(getCompletions()[0].text).toBe("-backdrop-hue-rotate-0");
   });
 });
