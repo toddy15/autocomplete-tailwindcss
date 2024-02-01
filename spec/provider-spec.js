@@ -39,7 +39,8 @@ describe("autocomplete-tailwindcss", () => {
   it("returns no completions when current project does not have tailwind installed", () => {
     provider.isTailwindProject = false;
 
-    editor.setText('<div class="bg-black');
+    editor.setText('<div class="bg-bla');
+    editor.setCursorBufferPosition([0, 19]);
     expect(getCompletions().length).toBe(0);
   });
 
@@ -49,10 +50,18 @@ describe("autocomplete-tailwindcss", () => {
     expect(getCompletions().length).toBe(0);
   });
 
+  it("returns no completions when in another attribute", () => {
+    provider.isTailwindProject = true;
+
+    editor.setText('<div style="bg-bla');
+    editor.setCursorBufferPosition([0, 19]);
+    expect(getCompletions().length).toBe(0);
+  });
+
   it("autocompletes html class attribute", () => {
     provider.isTailwindProject = true;
 
-    editor.setText('<div class="bg-black');
+    editor.setText('<div class="bg-bla');
     editor.setCursorBufferPosition([0, 19]);
 
     const completions = getCompletions();
