@@ -32,7 +32,7 @@ describe("autocomplete-tailwindcss", () => {
       editor = atom.workspace.getActiveTextEditor();
       provider = atom.packages
         .getActivePackage("autocomplete-tailwindcss")
-        .mainModule.getProvider();
+        .mainModule.provide();
     });
   });
 

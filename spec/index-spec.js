@@ -21,7 +21,7 @@ describe("project-tailwind", () => {
     setPathAndActivate("project-tailwind");
     waitsForPromise(() => module.isTailwindListedAsDependency());
     runs(() => {
-      expect(module.getProvider().isTailwindProject).toBe(true);
+      expect(module.provide().isTailwindProject).toBe(true);
     });
   });
 });
@@ -31,7 +31,7 @@ describe("project-html", () => {
     setPathAndActivate("project-html");
     waitsForPromise(() => module.isTailwindListedAsDependency());
     runs(() => {
-      expect(module.getProvider().isTailwindProject).toBe(false);
+      expect(module.provide().isTailwindProject).toBe(false);
     });
   });
 
@@ -42,7 +42,7 @@ describe("project-html", () => {
     );
     setPathAndActivate("project-html");
     runs(() => {
-      expect(module.getProvider().isTailwindProject).toBe(true);
+      expect(module.provide().isTailwindProject).toBe(true);
     });
   });
 });

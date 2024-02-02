@@ -144,7 +144,7 @@ module.exports = {
    *
    * @return {object}
    */
-  getProvider() {
+  provide() {
     return provider;
   },
 
