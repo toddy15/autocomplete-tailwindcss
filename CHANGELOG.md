@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] – 2024-02-02
+
+### Added
+
+- Preview colors encoded in hexadecimal notation
+- More tests
+
+### Changed
+
+- Update to autocomplete-plus Provider API 4.0.0
+
 ## [0.12.0] – 2024-01-31
 
 ### Fixed
@@ -63,6 +74,10 @@ and this project adheres to
 - Color preview in autocompletion popup
 - Make tests pass again
 
+[UNRELEASED]:
+  https://github.com/toddy15/autocomplete-tailwindcss/compare/v1.0.0...HEAD
+[1.0.0]:
+  https://github.com/toddy15/autocomplete-tailwindcss/compare/v0.12.0...v1.0.0
 [0.12.0]:
   https://github.com/toddy15/autocomplete-tailwindcss/compare/v0.11.0...v0.12.0
 [0.11.0]:
