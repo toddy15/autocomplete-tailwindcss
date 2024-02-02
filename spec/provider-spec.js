@@ -102,6 +102,15 @@ describe("autocomplete-tailwindcss", () => {
     expect(getCompletions()[0].text).toBe("-backdrop-hue-rotate-0");
   });
 
+  it("autocompletes with a slash", () => {
+    provider.isTailwindProject = true;
+
+    editor.setText('<div class="bg-sky-500/');
+    editor.setCursorBufferPosition([0, 24]);
+
+    expect(getCompletions()[0].text).toBe("bg-sky-500/0");
+  });
+
   it("does not show preview colors if there are no colors", () => {
     provider.isTailwindProject = true;
 

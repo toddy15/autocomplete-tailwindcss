@@ -28,19 +28,6 @@ module.exports = {
 
     let { prefix, bufferPosition, editor, scopeDescriptor } = request;
 
-    if (prefix.length === 0) {
-      const character = editor.getTextInRange([
-        [bufferPosition.row, bufferPosition.column - 1],
-        bufferPosition,
-      ]);
-
-      if (character !== "-") {
-        return [];
-      }
-
-      prefix = character;
-    }
-
     const { scopes } = scopeDescriptor;
     const line = editor.getTextInRange([
       [bufferPosition.row, 0],
@@ -54,6 +41,12 @@ module.exports = {
     ) {
       return [];
     }
+
+    // The provided prefix only matches word characters.
+    // Therefore, we construct our own prefix, which
+    // includes hyphen and slash.
+    let prefixMatch = line.match(/[a-z0-9-/]+$/i);
+    prefix = prefixMatch ? prefixMatch[0] : "";
 
     const suggestions = [];
 
