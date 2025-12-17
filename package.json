@@ -32,7 +32,7 @@
   "devDependencies": {
     "json-stringify-pretty-compact": "^3.0.0",
     "prettier": "^3.7.4",
-    "tailwindcss": "^3.4.19"
+    "tailwindcss": "^4.1.18"
   },
   "providedServices": {
     "autocomplete.provider": {
