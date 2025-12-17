@@ -12,11 +12,11 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16, 18, 20]
-        pulsar-version: [1.113.0]
+        node-version: [20, 22, 24]
+        pulsar-version: [1.113.0, 1.131.0]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
