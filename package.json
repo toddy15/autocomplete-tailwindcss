@@ -4,6 +4,7 @@
   "description": "Autocomplete for Tailwind CSS classes",
   "license": "MIT",
   "repository": "https://github.com/toddy15/autocomplete-tailwindcss.git",
+  "homepage": "https://github.com/toddy15/autocomplete-tailwindcss#readme",
   "bugs": {
     "url": "https://github.com/toddy15/autocomplete-tailwindcss/pulls"
   },
