@@ -8,6 +8,14 @@ and this project adheres to
 
 ## [UNRELEASED]
 
+- Nothing yet.
+
+## [1.1.0] – 2025-12-17
+
+### Changed
+
+- Update autocompletion for TailwindCSS v3.4.19
+
 ### Fixed
 
 - Support autocompletion for classnames including a slash (e.g. bg-sky-500/0)
@@ -81,7 +89,9 @@ and this project adheres to
 - Make tests pass again
 
 [UNRELEASED]:
-  https://github.com/toddy15/autocomplete-tailwindcss/compare/v1.0.0...HEAD
+  https://github.com/toddy15/autocomplete-tailwindcss/compare/v1.1.0...HEAD
+[1.1.0]:
+  https://github.com/toddy15/autocomplete-tailwindcss/compare/v1.0.0...v1.1.0
 [1.0.0]:
   https://github.com/toddy15/autocomplete-tailwindcss/compare/v0.12.0...v1.0.0
 [0.12.0]:
