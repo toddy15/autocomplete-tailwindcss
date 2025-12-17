@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const postcss = require("postcss");
 const stringify = require("json-stringify-pretty-compact");
-const tailwind = require("tailwindcss");
+const tailwind = require("@tailwindcss/postcss");
 
 (async () => {
   const css = `
