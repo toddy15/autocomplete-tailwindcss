@@ -68,7 +68,7 @@ describe("autocomplete-tailwindcss", () => {
     expect(completions.length).toBe(22);
     expect(completions[0].text).toContain("bg-black");
     expect(completions[0].rightLabel).toContain(
-      "--tw-bg-opacity: 1; background-color: rgb(0 0 0 / var(--tw-bg-opacity));",
+      "--tw-bg-opacity: 1; background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));",
     );
     expect(completions[0].leftLabelHTML).toBe(
       '<div style="background-color: rgb(0 0 0 / 1)" class="tailwind__color-preview"></div>',
